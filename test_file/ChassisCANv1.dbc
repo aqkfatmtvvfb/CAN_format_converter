@@ -1,0 +1,76 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: EHB Gear VCU EPS SAS
+
+
+BO_ 277 VCU2EHB: 8 VCU
+
+BO_ 288 EHBSensor: 8 EHB
+
+BO_ 1096 GearPosition: 5 Gear
+ SG_ GearPosition : 4|4@1+ (1,0) [0|15] ""  VCU
+
+BO_ 2348865164 VCU2EPS: 8 VCU
+ SG_ B_BoosterMotorRequestTorque : 0|8@1+ (0.1,0) [0|25] "Nm"  EPS
+ SG_ B_BoosterMotorRequestAngle : 8|16@1- (0.1,0) [-900|900] "deg"  EPS
+ SG_ B_VehicleSpeed : 24|16@1+ (0.1,0) [0|150] "km/h"  EPS
+ SG_ B_Power_Voltage : 40|8@1+ (0.1,0) [0|25] "V"  EPS
+ SG_ B_Power_Current : 48|16@1+ (1,0) [0|250] "A"  EPS
+
+BO_ 2550172886 EPSStatus: 1 EPS
+ SG_ B_EPS_Error : 0|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2565872968 SAS_18F01D48: 8 SAS
+ SG_ SAS_SteeringAngle : 0|16@1- (0.1,0) [-3276.8|3276.7] "deg"  VCU,EPS
+ SG_ SAS_SteeringAngleVelocity : 16|8@1+ (4,0) [0|1020] "deg/s"  VCU,EPS
+ SG_ SAS_SteeringAngleValid : 24|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_SteeringSpeedValid : 25|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_Calibrated : 26|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_BatteryWaring : 28|2@1+ (1,0) [0|3] ""  VCU
+ SG_ SAS_SASFailure : 30|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_MessageCounter : 40|8@1+ (1,0) [0|255] ""  VCU
+ SG_ SAS_CheckSum : 56|8@1+ (1,0) [0|255] ""  VCU
+
+
+
+VAL_ 1096 GearPosition 14 "Position_Tipp_minus" 12 "Position_S" 10 "Position_Tipp_plus" 8 "Position_P" 7 "Position_R" 6 "Position_N" 5 "Position_D" 4 "Position4" 3 "Position3" 2 "Position2" 1 "Position1" ;
+VAL_ 2550172886 B_EPS_Error 0 "Normal" 1 "Error" ;
+VAL_ 2565872968 SAS_SteeringAngleValid 0 "NotValid" 1 "Valid" ;
+VAL_ 2565872968 SAS_SteeringSpeedValid 0 "NotValid" 1 "Valid" ;
+VAL_ 2565872968 SAS_Calibrated 0 "NotCalirated" 1 "Calibrated" ;
+VAL_ 2565872968 SAS_BatteryWaring 0 "NoWaring" 1 "6VWarning" 2 "16VWarning" 3 "Invalid" ;
+VAL_ 2565872968 SAS_SASFailure 0 "NoFailure" 1 "Failure" ;
+

@@ -114,8 +114,6 @@ BO_ 2565872968 SAS_18F01D48: 8 SAS
 
 
 
-CM_ BO_ 2550588916 "mmmmmmmmmmmmmmm";
-CM_ SG_ 2550588916 B_ChargerControl "ssssssssssssssssssssssssssssss";
 VAL_ 2348872844 B_S_VehicleError 0 "Normal" 1 "Error" ;
 VAL_ 2348872844 B_C_MainRelay 0 "Open" 1 "Closed" ;
 VAL_ 2348872844 B_C_InchargeStart 0 "Charge" 1 "Closed" ;

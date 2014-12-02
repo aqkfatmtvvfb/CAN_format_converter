@@ -1,0 +1,142 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: EHB Gear VCU EPS SAS
+
+
+BO_ 279 VCU2EHB_ReqBrakeTorque: 8 VCU
+ SG_ C_RequestBrakeTorque_RR : 48|16@1+ (0.1,0) [0|6000] "Nm"  EHB
+ SG_ C_RequestBrakeTorque_RL : 32|16@1+ (0.1,0) [0|6000] "Nm"  EHB
+ SG_ C_RequestBrakeTorque_FR : 16|16@1+ (0.1,0) [0|6000] "Nm"  EHB
+ SG_ C_RequestBrakeTorque_FL : 0|16@1+ (0.1,0) [0|6000] "Nm"  EHB
+
+BO_ 278 VCU2EHB_ReqWhPress: 8 VCU
+ SG_ C_RequestWheelCylinderPress_RR : 48|16@1+ (0.1,0) [0|30] "MPa"  EHB
+ SG_ C_RequestWheelCylinderPress_RL : 32|16@1+ (0.1,0) [0|30] "MPa"  EHB
+ SG_ C_RequestWheelCylinderPress_FR : 16|16@1+ (0.1,0) [0|30] "MPa"  EHB
+ SG_ C_RequestWheelCylinderPress_FL : 0|16@1+ (0.1,0) [0|30] "MPa"  EHB
+
+BO_ 1352 GearShiftLock: 3 VCU
+ SG_ GE4_Testparam_2 : 16|8@1+ (1,0) [0|255] ""  Gear
+ SG_ GE4_Testparam_1 : 8|8@1+ (1,0) [0|255] ""  Gear
+ SG_ GE4_Ausleuchtung : 4|4@1+ (1,0) [0|15] ""  Gear
+ SG_ GE4_res_03 : 3|1@1+ (1,0) [0|0] ""  Gear
+ SG_ GE4_Test : 2|1@1+ (1,0) [0|1] ""  Gear
+ SG_ GE4_AuslModus : 1|1@1+ (1,0) [0|1] ""  Gear
+ SG_ GE4_ShiftLock : 0|1@1+ (1,0) [0|1] ""  Gear
+
+BO_ 292 EHBFunctionMessage: 8 EHB
+ SG_ C_E_WheelCylinderPress_RR : 48|16@1+ (0.1,0) [0|30] "MPa"  VCU
+ SG_ C_E_WheelCylinderPress_RL : 32|16@1+ (0.1,0) [0|30] "MPa"  VCU
+ SG_ C_E_WheelCylinderPress_FR : 16|16@1+ (0.1,0) [0|30] "MPa"  VCU
+ SG_ C_E_WheelCylinderPress_FL : 0|16@1+ (0.1,0) [0|30] "MPa"  VCU
+
+BO_ 277 VCU2EHB: 8 VCU
+ SG_ GearPosition2EHB : 20|4@1+ (1,0) [0|15] ""  EHB
+ SG_ C_VCUEHBModeSwitch : 16|4@1+ (1,0) [0|15] ""  EHB
+ SG_ C_V_SteeringAngle : 0|16@1- (0.1,0) [-3276.8|3276.7] "deg"  EHB
+
+BO_ 291 EHBSenseMessage: 8 EHB
+ SG_ C_E_MainCylinderPress : 40|8@1+ (0.1,0) [0|25.5] "MPa"  VCU
+ SG_ C_E_BrakePadelAngle : 48|16@1+ (0.25,0) [0|100] "%"  VCU
+ SG_ C_E_LongitudinalAcceleration : 32|8@1+ (0.05,0) [0|10] "m/s"  VCU
+ SG_ C_E_LateralAcceleration : 24|8@1+ (0.05,0) [0|10] "m/s"  VCU
+ SG_ C_E_YawVelocity : 16|8@1+ (0.25,0) [0|63.75] "deg/s"  VCU
+ SG_ C_E_VehicleSpeed : 0|16@1+ (0.1,0) [0|220] "km/h"  EPS,VCU
+
+BO_ 1096 GearPosition: 5 Gear
+ SG_ WH1_Position_inv : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ WH1_Reserve2 : 32|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WH1_Zaehler : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ WH1_Reserve1 : 29|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WH1_Test_Flag : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ WH1_Testergebnis : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ WH1_Fehler : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ WH1_Init : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WH1_StaShiftLock : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ WH1_GearPosition : 4|4@1+ (1,0) [0|15] ""  VCU
+
+BO_ 2348865164 VCU2EPS: 8 VCU
+ SG_ C_BoosterMotorRequestTorque : 0|8@1+ (0.1,0) [0|25] "Nm"  EPS
+ SG_ C_BoosterMotorRequestAngle : 8|16@1- (0.1,0) [-900|900] "deg"  EPS
+ SG_ C_VehicleSpeed : 48|16@1+ (0.1,0) [0|220] "km/h"  EPS
+ SG_ C_PowerVoltage : 40|8@1+ (0.1,0) [0|25] "V"  EPS
+ SG_ C_PowerCurrent : 24|16@1+ (1,0) [0|250] "A"  EPS
+
+BO_ 2550172886 EPSStatus: 2 EPS
+ SG_ C_EPS_Error : 0|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2565872968 SAS_18F01D48: 8 SAS
+ SG_ SAS_SteeringAngle : 0|16@1- (0.1,0) [-3276.8|3276.7] "deg"  VCU,EPS
+ SG_ SAS_SteeringAngleVelocity : 16|8@1+ (4,0) [0|1020] "deg/s"  VCU,EPS
+ SG_ SAS_SteeringAngleValid : 24|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_SteeringSpeedValid : 25|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_Calibrated : 26|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_BatteryWaring : 28|2@1+ (1,0) [0|3] ""  VCU
+ SG_ SAS_SASFailure : 30|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_MessageCounter : 40|8@1+ (1,0) [0|255] ""  VCU
+ SG_ SAS_CheckSum : 56|8@1+ (1,0) [0|255] ""  VCU
+
+
+
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","vector_leerstring";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","vector_leerstring";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 1 100;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgCycleTime" 10;
+BA_ "GenMsgCycleTime" BO_ 279 5;
+BA_ "GenMsgCycleTime" BO_ 278 5;
+BA_ "GenMsgCycleTime" BO_ 292 5;
+BA_ "GenMsgCycleTime" BO_ 277 5;
+BA_ "GenMsgCycleTime" BO_ 291 5;
+BA_ "GenMsgCycleTime" BO_ 2550172886 50;
+VAL_ 1352 GE4_Ausleuchtung 15 "Error" 14 "Tipp_Gasse" 13 "PositionL" 12 "PositionS_Sport" 11 "PositionTipp_minus" 10 "PositionTipp_plus" 8 "PositionP_Stop" 7 "PositionR" 6 "PositionN" 5 "PositionD" 4 "Position4" 3 "Position3" 2 "Position2" 1 "Position1" 0 "NoLamp" ;
+VAL_ 1352 GE4_Test 1 "Test" 0 "NoTest" ;
+VAL_ 1352 GE4_AuslModus 1 "USA" 0 "RDW" ;
+VAL_ 1352 GE4_ShiftLock 1 "Unlock" 0 "Lock" ;
+VAL_ 277 GearPosition2EHB 15 "Error" 13 "Position_L" 11 "Position_Tipp_minus" 14 "Tipp_Gasse" 12 "Position_S" 10 "Position_Tipp_plus" 8 "Position_P" 7 "Position_R" 6 "Position_N" 5 "Position_D" 4 "Position4" 3 "Position3" 2 "Position2" 1 "Position1" ;
+VAL_ 1096 WH1_Test_Flag 1 "Valid" 0 "Invalid" ;
+VAL_ 1096 WH1_Fehler 0 "NoError" ;
+VAL_ 1096 WH1_Init 1 "NoInitialization" 0 "Initialization" ;
+VAL_ 1096 WH1_StaShiftLock 7 "Error" 6 "NoInstallation" 3 "ShiftLock_Enable" 2 "ShiftLock_Disenable" 0 "Initial" ;
+VAL_ 1096 WH1_GearPosition 15 "Error" 13 "Position_L" 11 "Position_Tipp_minus" 14 "Tipp_Gasse" 12 "Position_S" 10 "Position_Tipp_plus" 8 "Position_P" 7 "Position_R" 6 "Position_N" 5 "Position_D" 4 "Position4" 3 "Position3" 2 "Position2" 1 "Position1" ;
+VAL_ 2550172886 C_EPS_Error 0 "Normal" 1 "Error" ;
+VAL_ 2565872968 SAS_SteeringAngleValid 0 "NotValid" 1 "Valid" ;
+VAL_ 2565872968 SAS_SteeringSpeedValid 0 "NotValid" 1 "Valid" ;
+VAL_ 2565872968 SAS_Calibrated 0 "NotCalirated" 1 "Calibrated" ;
+VAL_ 2565872968 SAS_BatteryWaring 0 "NoWaring" 1 "6VWarning" 2 "16VWarning" 3 "Invalid" ;
+VAL_ 2565872968 SAS_SASFailure 0 "NoFailure" 1 "Failure" ;
+

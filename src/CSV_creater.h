@@ -1,29 +1,21 @@
+#define MAX_MESSAGE		100
+#define MAX_SIGNAL		64
+//#define MAX_SIG_DESCRIP 100
+#define MAX_COMMENT		100
+#define MAX_ValueDescription		20
 typedef unsigned int uint;
 typedef char string[128];
 typedef char C_identifier[32];
-typedef struct RecordTag
+
+typedef struct ValueDescriptionTag
 {
-	int				period_ms;
-	uint			messageID;
-	C_identifier	messageName;
-	int				messageSize;
-	C_identifier	transmitter;
-	char			receiver[320];
-	C_identifier	signalName;
-	char			signalDescription[128];
-	string			units;
-	double 			Min;
-	double			Max;
-	double			factor;
-	double			offset;
-	char			valueDescription[320];
-	int				startBit;
-	int				signalSize;
-	int				byte_order;
-	char			value_type;
-	C_identifier	receiverNode[10];
-	int				nReceiverNode;
-}Record;
+	uint			message_ID;
+	C_identifier	signal_name;
+	double			value[MAX_ValueDescription];
+	string			description[MAX_ValueDescription];
+	int				nDescriptionElement;
+}ValueDescription;
+
 typedef struct SignalTag
 {
 	C_identifier			name;
@@ -37,25 +29,29 @@ typedef struct SignalTag
 	C_identifier			receiverNode[10];
 	int						nReceiverNode;
 	int						startPosition;
-
-	
+	ValueDescription		sValDecritp;
 }Signal;
+
 typedef struct MessageTag 
 {
 	uint			ID; 
 	C_identifier	name;
 	int				size;
 	C_identifier	transmitter;
-	Signal			*prSignal;
+	Signal			*prSignal[MAX_SIGNAL];
 	int				nSignal;
 	int				startPosition;
+	uint				isExtend;
 }Message;
 
-typedef struct ValueDescriptionTag
+typedef struct Config_Tag
 {
-	uint			message_ID;
-	C_identifier	signal_name;
-	double			value[10];
-	string			description[10];
-	int				nDescriptionElement;
-}ValueDescription;
+	string dbcFileName;
+	string csvFileName;
+}Config;
+
+typedef struct DBCInMemory_Tag
+{
+	char* prDBC;
+	int nChar;
+}DbcInMemory;

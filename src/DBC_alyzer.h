@@ -8,11 +8,17 @@
 	author:		WangYu(wangyu_1988@126.com)
 *********************************************************************/
 typedef unsigned int uint;
-typedef char string[128];
+typedef char string[500];
 typedef char C_identifier[32];
+
+#define NULL_VALUE  0xCCCCCCCC
+
+
 typedef struct RecordTag
 {
 	int				period_ms;
+	uint			rawMessageID;
+	uint			isExtend;
 	uint			messageID;
 	C_identifier	messageName;
 	int				messageSize;
@@ -33,6 +39,18 @@ typedef struct RecordTag
 	C_identifier	receiverNode[10];
 	int				nReceiverNode;
 }Record;
+
+
+typedef struct ValueDescriptionTag
+{
+	uint			message_ID;
+	C_identifier	signal_name;
+	double			value[20];
+	string			description[20];
+	int				nDescriptionElement;
+}ValueDescription;
+
+
 typedef struct SignalTag
 {
 	C_identifier			name;
@@ -46,11 +64,14 @@ typedef struct SignalTag
 	C_identifier			receiverNode[10];
 	int						nReceiverNode;
 
-	
+	ValueDescription		sValDecritp;
 }Signal;
+
+
 typedef struct MessageTag 
 {
 	uint			ID; 
+	uint			isExtend;
 	C_identifier	name;
 	int				size;
 	C_identifier	transmitter;
@@ -58,11 +79,3 @@ typedef struct MessageTag
 	int				nSignal;
 }Message;
 
-typedef struct ValueDescriptionTag
-{
-	uint			message_ID;
-	C_identifier	signal_name;
-	double			value[10];
-	string			description[10];
-	int				nDescriptionElement;
-}ValueDescription;

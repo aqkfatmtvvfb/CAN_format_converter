@@ -1,0 +1,78 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VCU Dash
+
+
+BO_ 294 dash126: 4 Dash
+
+BO_ 528 dash210: 2 Dash
+
+BO_ 290 EMS_4: 8 VCU
+ SG_ EngineSpeed : 0|16@1+ (0.250001,0) [0|7000] "r/min"  Dash
+
+BO_ 330 EMS_5: 2 VCU
+ SG_ VehicleSpeed : 0|16@1+ (0.010008,1) [1|220] "km/h"  Dash
+
+BO_ 532 EMS_6: 6 VCU
+ SG_ EngineTemp : 8|8@1- (0.75,0) [-95|95] ""  Dash
+ SG_ ConditionMiLLampOn : 41|1@1+ (1,0) [0|1] ""  Dash
+ SG_ Epc : 42|1@1+ (1,0) [0|1] ""  Dash
+
+BO_ 584 TCU_3: 6 VCU
+ SG_ gearinfo : 12|4@1+ (1,1) [1|8] ""  Dash
+ SG_ statusGearboxmil : 31|1@1+ (1,0) [0|1] ""  Dash
+ SG_ manualshift : 36|2@1+ (1,0) [0|2] ""  Dash
+ SG_ leverinfo : 40|3@1+ (1,0) [0|6] ""  Dash
+
+BO_ 300 ABS_3: 2 VCU
+ SG_ brakelamp : 0|1@1+ (1,0) [0|1] ""  Dash
+ SG_ absmil : 4|1@1+ (1,0) [0|1] ""  Dash
+
+
+
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 1 10000;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used";
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgCycleTime" 100;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+VAL_ 532 ConditionMiLLampOn 0 "off" 1 "on" ;
+VAL_ 532 Epc 0 "off" 1 "on" ;
+VAL_ 584 statusGearboxmil 0 "off" 1 "on" ;
+VAL_ 584 leverinfo 0 "P" 1 "R" 2 "N" 3 "D" 4 "S" 5 "M" 6 "W" 0 "" ;
+VAL_ 300 brakelamp 0 "off" 1 "on" ;
+VAL_ 300 absmil 0 "off" 1 "on" ;
+
