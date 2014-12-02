@@ -1,11 +1,11 @@
 /********************************************************************
-	created:	2013/02/24
-	created:	24:2:2013   22:56
-	filename: 	c:\Users\WangYu\Desktop\CAN\DBC_alyzer\DBC_alyzer\DBC_alyzer.c
-	file path:	c:\Users\WangYu\Desktop\CAN\DBC_alyzer\DBC_alyzer
-	file base:	DBC_alyzer
-	file ext:	c
-	author:		WangYu(wangyu_1988@126.com)
+created:	2013/02/24
+created:	24:2:2013   22:56
+filename: 	c:\Users\WangYu\Desktop\CAN\DBC_alyzer\DBC_alyzer\DBC_alyzer.c
+file path:	c:\Users\WangYu\Desktop\CAN\DBC_alyzer\DBC_alyzer
+file base:	DBC_alyzer
+file ext:	c
+author:		WangYu(wangyu_1988@126.com)
 *********************************************************************/
 #include <stdio.h>
 #include <string.h>
@@ -13,6 +13,8 @@
 #include "DBC_alyzer.h"
 static int calculate_start_bit(int LSB,int byte_order,int signal_size);
 static int calculate_MSB_motorola(int LSB,int signal_size);
+
+static int coordinateChange(int org_M, int org_N, int length);
 
 int main()
 {
@@ -31,28 +33,32 @@ int main()
 	int nNode,iNode;
 	int iReceiverNode,iDescription,nDescription,iDescriptionElement;
 	int extended_flag;
-	
-
-
+	//****************************************************
+	// 打开要读和要写的文件
+	printf("****************************************************\n");
+	printf("Version:\t\t20140320\n");
+	printf("Author:\t\t\tYu Wang, Fei Han\n");
+	printf("Contact Information:\twangyu_1988@126.com\n");
+	printf("****************************************************\n");
 	printf("请输入csv文件名，不带后缀\n");
 	scanf("%s",FileName);
-	//strcpy(FileName,"CAN_alyzer_Input");
 	strcpy(FileName1,FileName);
 	strcpy(FileName2,FileName);
 	printf("是否是扩展帧？0-NO 1-YES\n");
 	scanf("%d",&extended_flag);
 
-
-
-
 	if((csv=fopen(strcat(FileName1,".csv"),"r"))==NULL)
 	{
 		printf("Can not open csv file\n");
+		printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+		system("pause");
 		exit(0);
 	};
-	if((dbc=fopen(strcat(FileName2,".dbc"),"w"))==NULL)
+	if((dbc=fopen(strcat(FileName2,"_c.dbc"),"w"))==NULL)
 	{
 		printf("Can not open dbc file\n");
+		printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+		system("pause");
 		exit(0);
 	};
 	//****************************************************
@@ -79,16 +85,12 @@ int main()
 	if (record==NULL)
 	{	
 		printf("record_pr_error!\n");
-		return 0;
+		printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+		system("pause");
+		exit(0);
 	}
-
-
-
-
-
-
 	//****************************************************
-	// 开始将数据读入到缓存中
+	// 开始将数据读入到record中
 	rewind(csv);
 	do
 	{
@@ -102,33 +104,10 @@ int main()
 	char_temp=fgetc(csv);
 	while (char_temp!=EOF)
 	{
-		if (char_temp=='\n')
+		if ((','!=char_temp) && ('\n'!=char_temp))
 		{
-			string_temp[k]='\0';
-			k=0;
-			switch(column)
-			{
-			case 0:	record[row].period_ms	=atoi(string_temp);break;
-			case 1:	record[row].messageID	=(unsigned int)atoi(string_temp)+2147483648*extended_flag;break;
-			case 2:	strcpy(record[row].messageName,string_temp);	;break;
-			case 3:	record[row].messageSize	=atoi(string_temp);break;
-			case 4:	strcpy(record[row].transmitter,string_temp);break;	
-			case 5:	strcpy(record[row].receiver,string_temp);break;
-			case 6:	strcpy(record[row].signalName,string_temp);break;
-			case 7:	strcpy(record[row].signalDescription,string_temp);break;
-			case 8:	strcpy(record[row].units,string_temp);break;
-			case 9:	record[row].Min	=atof(string_temp);break;
-			case 10:record[row].Max	=atof(string_temp);break;
-			case 11:record[row].factor	=atof(string_temp);break;
-			case 12:record[row].offset	=atof(string_temp);break;
-			case 13:strcpy(record[row].valueDescription,string_temp);break;
-			case 14:record[row].startBit	=atoi(string_temp);break;
-			case 15:record[row].signalSize	=atoi(string_temp);break;
-			case 16:record[row].byte_order	=atoi(string_temp);break;
-			case 17:record[row].value_type	=string_temp[0];break;
-			}
-			column=0;
-			row=row+1;
+			string_temp[k]=char_temp;
+			k=k+1;
 		}
 		else if(char_temp==',')
 		{
@@ -137,7 +116,7 @@ int main()
 			switch(column)
 			{
 			case 0:	record[row].period_ms	=atoi(string_temp);break;
-			case 1:	record[row].messageID	=(unsigned int)atoi(string_temp)+2147483648*extended_flag;break;
+			case 1:	record[row].messageID	=atoi(string_temp) | (0x80000000*extended_flag);break;
 			case 2:	strcpy(record[row].messageName,string_temp);	;break;
 			case 3:	record[row].messageSize	=atoi(string_temp);break;
 			case 4:	strcpy(record[row].transmitter,string_temp);break;	
@@ -153,16 +132,35 @@ int main()
 			case 14:record[row].startBit	=atoi(string_temp);break;
 			case 15:record[row].signalSize	=atoi(string_temp);break;
 			case 16:record[row].byte_order	=atoi(string_temp);break;
-			case 17:record[row].value_type	=string_temp[0];break;
+				// case 17:record[row].value_type	=string_temp[0];break;
+			default: printf("Error in %s(%d)", __FUNCTION__, __LINE__);
 			}
 			column=column+1;
 		}
+		else if(char_temp=='\n')
+		{
+			string_temp[k]='\0';
+			k=0;
+
+			if (17==column)
+			{
+				record[row].value_type	=string_temp[0];
+			}
+			else
+			{
+				printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+				system("pause");
+				exit(0);
+			}
+			column=0;
+			row=row+1;
+		}
 		else
 		{
-			string_temp[k]=char_temp;
-			k=k+1;
+			printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+			system("pause");
+			exit(0);
 		}
-
 		char_temp=fgetc(csv);
 	}
 	//****************************************************
@@ -176,8 +174,20 @@ int main()
 	while (row<nRecord)
 	{
 		char_temp=record[row].receiver[k];
-
-		if (char_temp=='\0')
+		if ((char_temp!=' ') && (char_temp!='\0'))
+		{
+			record[row].receiverNode[j][i]=char_temp;
+			i=i+1;
+			k=k+1;
+		}
+		else if(char_temp==' ')
+		{
+			record[row].receiverNode[j][i]='\0';
+			i=0;
+			j=j+1;
+			k=k+1;
+		}		
+		else if(char_temp=='\0')
 		{
 			record[row].receiverNode[j][i]='\0';
 			i=0;
@@ -193,21 +203,12 @@ int main()
 			k=0;
 			row=row+1;
 		} 
-		else if(char_temp==' ')
-		{
-			record[row].receiverNode[j][i]='\0';
-			i=0;
-			j=j+1;
-			k=k+1;
-		}
 		else
 		{
-			record[row].receiverNode[j][i]=char_temp;
-			i=i+1;
-			k=k+1;
+			printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+			system("pause");
+			exit(0);
 		}
-
-
 	}
 	//计数
 	nNode=1;
@@ -274,19 +275,17 @@ int main()
 		{
 			nMessage++;
 			messageIDTemp=record[row].messageID;
-
 		}
 		row=row+1;
-
 	}
 	message=(Message *)malloc(nMessage*sizeof(Message));
 	if (message==NULL)
 	{
 		printf("message_pr_error!\n");
-		return 0;
+		printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+		system("pause");
+		exit(0);
 	}
-
-
 	for (i=0;i<nMessage;i++)
 	{
 		message[i].nSignal=1;
@@ -315,7 +314,9 @@ int main()
 		if (message[i].prSignal==NULL)
 		{
 			printf("message[i].prSignal_error!\n");
-			return 0;
+			printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+			system("pause");
+			exit(0);
 		}
 
 	}
@@ -364,8 +365,6 @@ int main()
 		}
 		else
 		{
-
-
 			nDescription=nDescription+1;
 			row=row+1;
 		}
@@ -374,7 +373,9 @@ int main()
 	if (valueDescription==NULL)
 	{
 		printf("valueDescription_error!\n");
-		return 0;
+		printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+		system("pause");
+		exit(0);
 	}
 	iDescription=0;
 	row=0;
@@ -391,33 +392,13 @@ int main()
 		}
 		else
 		{
-
 			char_temp=record[row].valueDescription[k];
-
-			if (char_temp=='\0')
+			if ((char_temp!=' ') && (char_temp!='\0'))
 			{
-				string_temp[i]='\0';
-				if(iDescriptionElement%2==0)
-				{
-					printf("error369\n");
-				}
-				else
-				{
-					strcpy(valueDescription[iDescription].description[iDescriptionElement/2],string_temp);
-				}
-				valueDescription[iDescription].nDescriptionElement=iDescriptionElement/2+1;
-				valueDescription[iDescription].message_ID=record[row].messageID;
-				strcpy(valueDescription[iDescription].signal_name,record[row].signalName);
-
-				i=0;
-				k=0;
-				row=row+1;
-				iDescriptionElement=0;
-				iDescription=iDescription+1;
-
-
-
-			} 
+				string_temp[i]=char_temp;
+				i=i+1;
+				k=k+1;
+			}
 			else if(char_temp==' ')
 			{
 
@@ -433,18 +414,37 @@ int main()
 				i=0;
 				k=k+1;
 				iDescriptionElement=iDescriptionElement+1;
-
 			}
+			else if (char_temp=='\0')
+			{
+				string_temp[i]='\0';
+				if(iDescriptionElement%2==1)
+				{
+					strcpy(valueDescription[iDescription].description[iDescriptionElement/2],string_temp);
+					valueDescription[iDescription].nDescriptionElement=iDescriptionElement/2+1;
+					valueDescription[iDescription].message_ID=record[row].messageID;
+					strcpy(valueDescription[iDescription].signal_name,record[row].signalName);
+					iDescription=iDescription+1;
+				}
+				else
+				{
+					printf("Error in Description, number of element in Row %d can not be exact divided by 2,signal name is %s \n",row,record[row].signalName);
+					printf("Error in %s(%d)\n", __FUNCTION__, __LINE__);
+					nDescription=nDescription-1;
+				}
+				i=0;
+				k=0;
+				row=row+1;
+				iDescriptionElement=0;	
+				
+			} 			
 			else
 			{
-				string_temp[i]=char_temp;
-				i=i+1;
-				k=k+1;
+				printf("Error in %s(%d)", __FUNCTION__, __LINE__);
+				system("pause");
+				exit(0);
 			}
-
 		}
-
-
 	}
 
 	//****************************************************
@@ -502,7 +502,7 @@ int main()
 		for (iSignal=0;iSignal<message[iMessage].nSignal;iSignal++)
 		{ 
 			fprintf(
-				dbc," SG_ %s : %d|%d@%d%c (%f,%f) [%f|%f] \"%s\"  ",
+				dbc," SG_ %s : %d|%d@%d%c (%g,%g) [%g|%g] \"%s\"  ",
 				message[iMessage].prSignal[iSignal].name,
 				message[iMessage].prSignal[iSignal].start_bit,
 				message[iMessage].prSignal[iSignal].signal_size,
@@ -526,10 +526,8 @@ int main()
 					fprintf(dbc,"\n");
 				}
 			}
-			
-
 		}
-
+		fprintf(dbc,"\n");
 	}
 	for(iDescription=0;iDescription<nDescription;iDescription++)
 	{
@@ -541,7 +539,7 @@ int main()
 		for (iDescriptionElement=0;iDescriptionElement<valueDescription[iDescription].nDescriptionElement;iDescriptionElement++)
 		{
 			fprintf(
-				dbc," %f \"%s\" ",
+				dbc," %g \"%s\" ",
 				valueDescription[iDescription].value[iDescriptionElement],
 				valueDescription[iDescription].description[iDescriptionElement]
 			);
@@ -558,7 +556,7 @@ int main()
 	}
 	free(message);
 	free(record);
-	
+
 	fclose(csv);
 	fclose(dbc);
 	printf("转换完成\n");
@@ -578,13 +576,53 @@ static int calculate_start_bit(int LSB,int byte_order,int signal_size)
 	}
 	return start_bit;
 }
-static int calculate_MSB_motorola(int LSB,int signal_size)
+//static int calculate_MSB_motorola(int LSB,int length)
+//{
+//	int mLSB,nLSB,mMSB,nMSB,MSB;
+//	mLSB=LSB/8;
+//	nLSB=LSB%8;
+//	nMSB=(length+nLSB-1)%8;
+//	if ((8-nLSB)>=length)
+//	{
+//		mMSB=mLSB;
+//	} 
+//	else
+//	{
+//		mMSB=mLSB-((length-(8-nLSB))/8+1);
+//	}
+//	MSB=8*mMSB+nMSB;
+//	return MSB;
+//}
+
+
+//hanfei changed: 2014-01-02
+static int calculate_MSB_motorola(int LSB,int length)
 {
-	int mLSB,nLSB,mMSB,nMSB,MSB;
+	int mLSB,nLSB,MSB;
 	mLSB=LSB/8;
 	nLSB=LSB%8;
-	nMSB=(signal_size+nLSB-1)%8;
-	mMSB=mLSB-(signal_size+nLSB-1)/8;
-	MSB=8*mMSB+nMSB;
+
+	MSB	= coordinateChange(mLSB, nLSB, length);
+
 	return MSB;
+}
+
+static int coordinateChange(int org_M, int org_N, int length)
+{
+	int new_M, new_N;
+	int result_M, result_N;
+	int tempNum;
+
+	new_M	= org_M;
+	new_N	= 7 - org_N;
+
+	tempNum	= new_M * 8 + new_N;
+	tempNum	= tempNum - length + 1;
+
+	result_N	= tempNum%8;
+	result_M	= tempNum/8;
+
+	result_N	= 7 - result_N;
+
+	return 8*result_M+result_N;
 }

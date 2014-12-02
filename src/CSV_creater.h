@@ -1,12 +1,3 @@
-/********************************************************************
-	created:	2013/02/24
-	created:	24:2:2013   22:56
-	filename: 	c:\Users\WangYu\Desktop\CAN\DBC_alyzer\DBC_alyzer\DBC_alyzer.h
-	file path:	c:\Users\WangYu\Desktop\CAN\DBC_alyzer\DBC_alyzer
-	file base:	DBC_alyzer
-	file ext:	h
-	author:		WangYu(wangyu_1988@126.com)
-*********************************************************************/
 typedef unsigned int uint;
 typedef char string[128];
 typedef char C_identifier[32];
@@ -45,6 +36,7 @@ typedef struct SignalTag
 	string					unit;
 	C_identifier			receiverNode[10];
 	int						nReceiverNode;
+	int						startPosition;
 
 	
 }Signal;
@@ -56,6 +48,7 @@ typedef struct MessageTag
 	C_identifier	transmitter;
 	Signal			*prSignal;
 	int				nSignal;
+	int				startPosition;
 }Message;
 
 typedef struct ValueDescriptionTag
