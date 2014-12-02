@@ -1,0 +1,10 @@
+period ms,Message ID,Message Name,Message size,transmitter,receiver,Signal Name,Signal Description,Units,Min,Max,factor,offset,value description,start_bit,Signal size,byte_order,value_type
+,13,C_VehicleSpeed,2,Brake,ACCMABX,C_Vx,,kph,0,220,0.1,0,,0,16,1,+
+,14,C_VehicleStatus,6,HIL,SteerMABX,C_Steering_Wheel_Angle,,degree,-700,700,1,0,,0,16,1,-
+,14,C_VehicleStatus,6,HIL,BrakeMABX,C_Ax,,m/s,0,9,0.25,0,,16,8,1,+
+,14,C_VehicleStatus,6,HIL,ACCMABX BrakeMABX,C_Ay,,m/s,0,9,0.25,0,,24,8,1,+
+,14,C_VehicleStatus,6,HIL,ACCMABX BrakeMABX,C_Yaw_Rate,,degree/s,0,60,0.25,0,,32,8,1,+
+,14,C_VehicleStatus,6,HIL,ACCMABX,C_Gear_Position,,,0,6,1,0,0 P 1 R 2 N 3 D 4 S 5 M 6 M+ 7 M-,40,8,1,+
+,15,C_ACCRequest,8,ACCMABX,EngineMABX EdriveMABX,C_Request_Engine_Torque,,Nm,0,450,1,0,,0,8,1,+
+,15,C_ACCRequest,8,ACCMABX,BrakeMABX,C_Request_Brake_Decelation,,m/s2,0,20,0.01,0,,8,16,1,+
+,15,C_ACCRequest,8,ACCMABX,BrakeMABX EngineMABX EdriveMABX,C_ACC_Status,,,0,3,1,0,0 Standby 1 ON 2 OFF 3 Error,24,2,1,+

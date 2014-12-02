@@ -1,0 +1,5 @@
+period ms,Message ID,Message Name,Message size,transmitter,receiver,Signal Name,Signal Description,Units,Min,Max,factor,offset,value description,start_bit,Signal size,byte_order,value_type
+10,17,L_MotorTorque,4,EdriveMABX,HIL,L_MotorTorque,,Nm,-450,450,1,0,,0,16,1,-
+10,17,L_EngineTorque,4,EngineMABX,HIL,L_EngineTorque,,Nm,-450,450,1,0,,16,16,1,-
+10,16,L_SpeedStatus,8,HIL,EngineMABX,L_EngineSpeed,,rpm,0,10000,0.25,0,,0,16,1,+
+10,16,L_SpeedStatus,8,HIL,EdriveMABX,L_MotorSpeed,,rpm,0,10000,0.25,0,,16,16,1,+

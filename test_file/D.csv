@@ -1,0 +1,26 @@
+period ms,Message ID,Message Name,Message size,transmitter,receiver,Signal Name,Signal Description,Units,Min,Max,factor,offset,value description,start_bit,Signal size,byte_order,value_type
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonCancel,,,0,1,1,0,0 NotPressed 1 Pressed,0,1,1,+
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonOff,,,0,1,1,0,0 NotPressed 1 Pressed,1,1,1,+
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonOn,,,0,1,1,0,0 NotPressed 1 Pressed,2,1,1,+
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonResume,,,0,1,1,0,0 NotPressed 1 Pressed,3,1,1,+
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonSet,,,0,1,1,0,0 NotPressed 1 Pressed,4,1,1,+
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonSpeedPlus,,,0,1,1,0,0 NotPressed 1 Pressed,5,1,1,+
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonSpeedMinus,,,0,1,1,0,0 NotPressed 1 Pressed,6,1,1,+
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonTgapPlus,,,0,1,1,0,0 NotPressed 1 Pressed,7,1,1,+
+100,18,D_ACCButton,2,DriverMABX,ACCMABX,D_ACCButtonTgapMinus,,,0,1,1,0,0 NotPressed 1 Pressed,8,1,1,+
+100,19,D_ACCDisplay,8,ACCMABX,DriverMABX,D_ACCDisplayRelativeDistance,,m,-255,256,1,0,,0,16,1,-
+100,19,D_ACCDisplay,8,ACCMABX,DriverMABX,D_ACCDisplayRelativeSpeed,,kph,-127,128,1,0,,16,8,1,-
+100,19,D_ACCDisplay,8,ACCMABX,DriverMABX,D_ACCDisplaySetSpeed,,kph,0,255,1,0,,24,8,1,+
+100,19,D_ACCDisplay,8,ACCMABX,DriverMABX,D_ACCDisplaySetDistance,,m,0,255,1,0,,32,8,1,+
+100,19,D_ACCDisplay,8,ACCMABX,DriverMABX,D_ACCDisplayState,,,0,1,1,0,0 Disactive 1 Active,40,1,1,+
+100,19,D_ACCDisplay,8,ACCMABX,DriverMABX,D_ACCDisplayObjDetect,,,0,1,1,0,0 NotDetect 1 Detect,41,1,1,+
+100,19,D_ACCDisplay,8,ACCMABX,DriverMABX,D_ACCDisplayWarning,,,0,1,1,0,0 NoWarning 1 Warning,42,1,1,+
+100,20,D_DriveInput,8,DriverMABX,HIL SteerMABX BrakeMABX,D_SteeringWheelAngle,,degree,-720,720,0.25,0,,0,16,1,-
+100,20,D_DriveInput,8,DriverMABX,HIL,D_ParkBrake,,%,0,100,0.5,0,,16,8,1,+
+100,20,D_DriveInput,8,DriverMABX,HIL ACCMABX,D_BrakePedalPosition,,%,0,100,0.5,0,,24,8,1,+
+100,20,D_DriveInput,8,DriverMABX,HIL ACCMABX,D_AccelPedalPosition,,%,0,100,0.5,0,,32,8,1,+
+100,20,D_DriveInput,8,DriverMABX,HIL,D_BrakePedalForce,,N,0,1000,0.25,0,,40,16,1,+
+100,20,D_DriveInput,8,DriverMABX,HIL,D_KeyPosition,,,0,2,1,0,0 OFF 1 ON 2 Start,56,4,1,+
+100,20,D_DriveInput,8,DriverMABX,HIL ACCMABX,D_GearPosition,,,0,7,1,0,0 P 1 R 2 N 3 D 4 S 5 M 6 M+ 7 M-,60,4,1,+
+100,21,D_TorqueFeedback,2,HIL,DriverMABX,SteeringWheelTorque,,Nm,-127,128,1,0,,0,8,1,-
+100,21,D_TorqueFeedback,2,HIL,DriverMABX,SteeringWheelTorqueEnable,,,0,1,1,0,0 Disable 1 Enable,8,1,1,+
