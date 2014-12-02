@@ -8,7 +8,7 @@
 	author:		WangYu(wangyu_1988@126.com)
 *********************************************************************/
 typedef unsigned int uint;
-typedef char string[64];
+typedef char string[128];
 typedef char C_identifier[32];
 typedef struct RecordTag
 {

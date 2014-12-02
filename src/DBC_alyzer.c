@@ -11,6 +11,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include "DBC_alyzer.h"
+static int calculate_start_bit(int LSB,int byte_order,int signal_size);
+static int calculate_MSB_motorola(int LSB,int signal_size);
+
 int main()
 {
 	FILE *csv;
@@ -329,7 +332,8 @@ int main()
 		for (iSignal=0;iSignal<message[iMessage].nSignal;iSignal++)
 		{
 			strcpy(message[iMessage].prSignal[iSignal].name,record[iRecord].signalName);
-			message[iMessage].prSignal[iSignal].start_bit=record[iRecord].startBit;
+			//message[iMessage].prSignal[iSignal].start_bit=record[iRecord].startBit;
+			message[iMessage].prSignal[iSignal].start_bit=calculate_start_bit(record[iRecord].startBit,record[iRecord].byte_order,record[iRecord].signalSize);
 			message[iMessage].prSignal[iSignal].signal_size=record[iRecord].signalSize;
 			message[iMessage].prSignal[iSignal].byte_order=record[iRecord].byte_order;
 			message[iMessage].prSignal[iSignal].value_type=record[iRecord].value_type;
@@ -560,4 +564,27 @@ int main()
 	printf("×ª»»Íê³É\n");
 	return 1;
 
+}
+static int calculate_start_bit(int LSB,int byte_order,int signal_size)
+{
+	int start_bit;
+	if (1==byte_order)  // intel format
+	{
+		start_bit=LSB;
+	} 
+	else
+	{
+		start_bit=calculate_MSB_motorola(LSB,signal_size); 
+	}
+	return start_bit;
+}
+static int calculate_MSB_motorola(int LSB,int signal_size)
+{
+	int mLSB,nLSB,mMSB,nMSB,MSB;
+	mLSB=LSB/8;
+	nLSB=LSB%8;
+	nMSB=(signal_size+nLSB-1)%8;
+	mMSB=mLSB-(signal_size+nLSB-1)/8;
+	MSB=8*mMSB+nMSB;
+	return MSB;
 }
