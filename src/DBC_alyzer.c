@@ -27,6 +27,7 @@ int main()
 	C_identifier nodeName[20],nodeNameTemp;
 	int nNode,iNode;
 	int iReceiverNode,iDescription,nDescription,iDescriptionElement;
+	int extended_flag;
 	
 
 
@@ -35,6 +36,8 @@ int main()
 	//strcpy(FileName,"CAN_alyzer_Input");
 	strcpy(FileName1,FileName);
 	strcpy(FileName2,FileName);
+	printf(" «∑Ò «¿©’π÷°£ø0-NO 1-YES\n");
+	scanf("%d",&extended_flag);
 
 
 
@@ -103,7 +106,7 @@ int main()
 			switch(column)
 			{
 			case 0:	record[row].period_ms	=atoi(string_temp);break;
-			case 1:	record[row].messageID	=(unsigned int)atoi(string_temp);break;
+			case 1:	record[row].messageID	=(unsigned int)atoi(string_temp)+2147483648*extended_flag;break;
 			case 2:	strcpy(record[row].messageName,string_temp);	;break;
 			case 3:	record[row].messageSize	=atoi(string_temp);break;
 			case 4:	strcpy(record[row].transmitter,string_temp);break;	
@@ -131,7 +134,7 @@ int main()
 			switch(column)
 			{
 			case 0:	record[row].period_ms	=atoi(string_temp);break;
-			case 1:	record[row].messageID	=(unsigned int)atoi(string_temp);break;
+			case 1:	record[row].messageID	=(unsigned int)atoi(string_temp)+2147483648*extended_flag;break;
 			case 2:	strcpy(record[row].messageName,string_temp);	;break;
 			case 3:	record[row].messageSize	=atoi(string_temp);break;
 			case 4:	strcpy(record[row].transmitter,string_temp);break;	
