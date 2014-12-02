@@ -1,0 +1,314 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VCU FLCon FRCon RLCon RRCon
+
+
+BO_ 2214593575 VCU2FLCon: 8 VCU
+ SG_ C_FLMotorTorque : 0|16@1+ (1,-150) [-150|150] "Nm"  FLCon
+ SG_ C_FLMotorSwitch : 16|1@1+ (1,0) [0|1] ""  FLCon
+ SG_ C_FLMotorMode : 17|1@1+ (1,0) [0|1] ""  FLCon
+
+BO_ 2214659367 VCU2FRCon: 8 VCU
+ SG_ C_FRMotorTorque : 0|16@1+ (1,-150) [-150|150] "Nm"  FRCon
+ SG_ C_FRMotorSwitch : 16|1@1+ (1,0) [0|1] ""  FRCon
+ SG_ C_FRMotorMode : 17|1@1+ (1,0) [0|1] ""  FRCon
+
+BO_ 2214725159 VCU2RLCon: 8 VCU
+ SG_ C_RLMotorTorque : 0|16@1+ (1,-150) [-150|150] "Nm"  RLCon
+ SG_ C_RLMotorSwitch : 16|1@1+ (1,0) [0|1] ""  RLCon
+ SG_ C_RLMotorMode : 17|1@1+ (1,0) [0|1] ""  RLCon
+
+BO_ 2214790951 VCU2RRCon: 8 VCU
+ SG_ C_RRMotorTorque : 0|16@1+ (1,-150) [-150|150] "Nm"  RRCon
+ SG_ C_RRMotorSwitch : 16|1@1+ (1,0) [0|1] ""  RRCon
+ SG_ C_RRMotorMode : 17|1@1+ (1,0) [0|1] ""  RRCon
+
+BO_ 2349868804 FLStatus: 8 FLCon
+ SG_ FLMotorSpeed : 0|16@1+ (0.1,-2000) [-2000|1350] "rpm"  VCU
+ SG_ FLMotorTorque : 16|16@1+ (1,-150) [-150|150] "Nm"  VCU
+ SG_ FLVoltage : 32|16@1+ (0.1,0) [0|160] "V"  VCU
+ SG_ FLCurrent : 48|16@1+ (0.1,-70) [-70|70] "A"  VCU
+
+BO_ 2349934340 FLStatus2: 8 FLCon
+ SG_ FLMotorTemp : 0|16@1+ (1,-40) [-40|150] "degree"  VCU
+ SG_ FLControllerTemp : 16|16@1+ (1,-40) [-40|120] "degree"  VCU
+ SG_ FLBBarCurOver : 32|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLModeError : 33|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLPhaseCurOver : 34|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLBBarVolOver : 35|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLMotorOverHeat : 36|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLConOverHeat : 37|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLMotorOverSpeed : 38|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLCANError : 39|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLMotorTempWarn : 40|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLConTempWarn : 41|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FLPhaseOverLoad : 42|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2349868805 FRStatus: 8 FRCon
+ SG_ FRMotorSpeed : 0|16@1+ (0.1,-2000) [-2000|1350] "rpm"  VCU
+ SG_ FRMotorTorque : 16|16@1+ (1,-150) [-150|150] "Nm"  VCU
+ SG_ FRVoltage : 32|16@1+ (0.1,0) [0|160] "V"  VCU
+ SG_ FRCurrent : 48|16@1+ (0.1,-70) [-70|70] "A"  VCU
+
+BO_ 2349934341 FRStatus2: 8 FRCon
+ SG_ FRMotorTemp : 0|16@1+ (1,-40) [-40|150] "degree"  VCU
+ SG_ FRControllerTemp : 16|16@1+ (1,-40) [-40|120] "degree"  VCU
+ SG_ FRBBarCurOver : 32|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRModeError : 33|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRPhaseCurOver : 34|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRBBarVolOver : 35|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRMotorOverHeat : 36|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRConOverHeat : 37|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRMotorOverSpeed : 38|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRCANError : 39|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRMotorTempWarn : 40|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRConTempWarn : 41|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FRPhaseOverLoad : 42|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2349868806 RLStatus: 8 RLCon
+ SG_ RLMotorSpeed : 0|16@1+ (0.1,-2000) [-2000|1350] "rpm"  VCU
+ SG_ RLMotorTorque : 16|16@1+ (1,-150) [-150|150] "Nm"  VCU
+ SG_ RLVoltage : 32|16@1+ (0.1,0) [0|160] "V"  VCU
+ SG_ RLCurrent : 48|16@1+ (0.1,-70) [-70|70] "A"  VCU
+
+BO_ 2349934342 RLStatus2: 8 RLCon
+ SG_ RLMotorTemp : 0|16@1+ (1,-40) [-40|150] "degree"  VCU
+ SG_ RLControllerTemp : 16|16@1+ (1,-40) [-40|120] "degree"  VCU
+ SG_ RLBBarCurOver : 32|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLModeError : 33|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLPhaseCurOver : 34|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLBBarVolOver : 35|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLMotorOverHeat : 36|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLConOverHeat : 37|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLMotorOverSpeed : 38|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLCANError : 39|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLMotorTempWarn : 40|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLConTempWarn : 41|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RLPhaseOverLoad : 42|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2349868807 RRStatus: 8 RRCon
+ SG_ RRMotorSpeed : 0|16@1+ (0.1,-2000) [-2000|1350] "rpm"  VCU
+ SG_ RRMotorTorque : 16|16@1+ (1,-150) [-150|150] "Nm"  VCU
+ SG_ RRVoltage : 32|16@1+ (0.1,0) [0|160] "V"  VCU
+ SG_ RRCurrent : 48|16@1+ (0.1,-70) [-70|70] "A"  VCU
+
+BO_ 2349934343 RRStatus2: 8 RRCon
+ SG_ RRMotorTemp : 0|16@1+ (1,-40) [-40|150] "degree"  VCU
+ SG_ RRControllerTemp : 16|16@1+ (1,-40) [-40|120] "degree"  VCU
+ SG_ RRBBarCurOver : 32|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRModeError : 33|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRPhaseCurOver : 34|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRBBarVolOver : 35|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRMotorOverHeat : 36|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRConOverHeat : 37|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRMotorOverSpeed : 38|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRCANError : 39|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRMotorTempWarn : 40|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRConTempWarn : 41|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RRPhaseOveRRoad : 42|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2348811303 VCU2FLMCU: 8 VCU
+ SG_ B_W_BMSStatus_FL : 16|1@1+ (1,0) [0|1] ""  FLCon
+ SG_ B_W_BMSErrorLevel_FL : 18|2@1+ (1,0) [0|1] ""  FLCon
+ SG_ B_W_BMSErrorReason_FL : 20|4@1+ (1,0) [0|15] ""  FLCon
+ SG_ B_C_PowerCutdown1_FL : 32|1@1+ (1,0) [0|1] ""  FLCon
+ SG_ B_C_PowerCutdown2_FL : 33|1@1+ (1,0) [0|1] ""  FLCon
+ SG_ B_C_MotorFeedback_FL : 34|1@1+ (1,0) [0|1] ""  FLCon
+ SG_ B_C_PowerCutdown3_FL : 35|1@1+ (1,0) [0|1] ""  FLCon
+ SG_ B_C_PowerCutdownHalf_FL : 37|1@1+ (1,0) [0|1] ""  FLCon
+ SG_ B_C_PowerCutdown4_FL : 38|1@1+ (1,0) [0|1] ""  FLCon
+ SG_ B_C_PowerCutdown5_FL : 39|1@1+ (1,0) [0|1] ""  FLCon
+
+BO_ 2349860135 VCU2FRMCU: 8 VCU
+ SG_ B_W_BMSStatus_FR : 16|1@1+ (1,0) [0|1] ""  FRCon
+ SG_ B_W_BMSErrorLevel_FR : 18|2@1+ (1,0) [0|1] ""  FRCon
+ SG_ B_W_BMSErrorReason_FR : 20|4@1+ (1,0) [0|15] ""  FRCon
+ SG_ B_C_PowerCutdown1_FR : 32|1@1+ (1,0) [0|1] ""  FRCon
+ SG_ B_C_PowerCutdown2_FR : 33|1@1+ (1,0) [0|1] ""  FRCon
+ SG_ B_C_MotorFeedback_FR : 34|1@1+ (1,0) [0|1] ""  FRCon
+ SG_ B_C_PowerCutdown3_FR : 35|1@1+ (1,0) [0|1] ""  FRCon
+ SG_ B_C_PowerCutdownHalf_FR : 37|1@1+ (1,0) [0|1] ""  FRCon
+ SG_ B_C_PowerCutdown4_FR : 38|1@1+ (1,0) [0|1] ""  FRCon
+ SG_ B_C_PowerCutdown5_FR : 39|1@1+ (1,0) [0|1] ""  FRCon
+
+BO_ 2350908967 VCU2RLMCU: 8 VCU
+ SG_ B_W_BMSStatus_RL : 16|1@1+ (1,0) [0|1] ""  RLCon
+ SG_ B_W_BMSErrorLevel_RL : 18|2@1+ (1,0) [0|1] ""  RLCon
+ SG_ B_W_BMSErrorReason_RL : 20|4@1+ (1,0) [0|15] ""  RLCon
+ SG_ B_C_PowerCutdown1_RL : 32|1@1+ (1,0) [0|1] ""  RLCon
+ SG_ B_C_PowerCutdown2_RL : 33|1@1+ (1,0) [0|1] ""  RLCon
+ SG_ B_C_MotorFeedback_RL : 34|1@1+ (1,0) [0|1] ""  RLCon
+ SG_ B_C_PowerCutdown3_RL : 35|1@1+ (1,0) [0|1] ""  RLCon
+ SG_ B_C_PowerCutdownHalf_RL : 37|1@1+ (1,0) [0|1] ""  RLCon
+ SG_ B_C_PowerCutdown4_RL : 38|1@1+ (1,0) [0|1] ""  RLCon
+ SG_ B_C_PowerCutdown5_RL : 39|1@1+ (1,0) [0|1] ""  RLCon
+
+BO_ 2351957799 VCU2RRMCU: 8 VCU
+ SG_ B_W_BMSStatus_RR : 16|1@1+ (1,0) [0|1] ""  RRCon
+ SG_ B_W_BMSErrorLevel_RR : 18|2@1+ (1,0) [0|1] ""  RRCon
+ SG_ B_W_BMSErrorReason_RR : 20|4@1+ (1,0) [0|15] ""  RRCon
+ SG_ B_C_PowerCutdown1_RR : 32|1@1+ (1,0) [0|1] ""  RRCon
+ SG_ B_C_PowerCutdown2_RR : 33|1@1+ (1,0) [0|1] ""  RRCon
+ SG_ B_C_MotorFeedback_RR : 34|1@1+ (1,0) [0|1] ""  RRCon
+ SG_ B_C_PowerCutdown3_RR : 35|1@1+ (1,0) [0|1] ""  RRCon
+ SG_ B_C_PowerCutdownHalf_RR : 37|1@1+ (1,0) [0|1] ""  RRCon
+ SG_ B_C_PowerCutdown4_RR : 38|1@1+ (1,0) [0|1] ""  RRCon
+ SG_ B_C_PowerCutdown5_RR : 39|1@1+ (1,0) [0|1] ""  RRCon
+
+
+
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "not_used","cyclic";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic";
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 1 10000;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 1 50000;
+BA_DEF_DEF_  "GenMsgSendType" "not_used";
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 5;
+BA_DEF_DEF_  "GenMsgCycleTime" 20;
+BA_ "GenMsgSendType" BO_ 2214593575 1;
+BA_ "GenMsgSendType" BO_ 2214659367 1;
+BA_ "GenMsgSendType" BO_ 2214725159 1;
+BA_ "GenMsgSendType" BO_ 2214790951 1;
+BA_ "GenMsgSendType" BO_ 2349868804 1;
+BA_ "GenMsgSendType" BO_ 2349934340 1;
+BA_ "GenMsgSendType" BO_ 2349868805 1;
+BA_ "GenMsgSendType" BO_ 2349934341 1;
+BA_ "GenMsgSendType" BO_ 2349868806 1;
+BA_ "GenMsgSendType" BO_ 2349934342 1;
+BA_ "GenMsgSendType" BO_ 2349868807 1;
+BA_ "GenMsgCycleTimeFast" BO_ 2349868807 5;
+BA_ "GenMsgSendType" BO_ 2349934343 1;
+BA_ "GenMsgSendType" BO_ 2348811303 1;
+BA_ "GenMsgCycleTime" BO_ 2348811303 100;
+BA_ "GenMsgSendType" BO_ 2349860135 1;
+BA_ "GenMsgCycleTime" BO_ 2349860135 100;
+BA_ "GenMsgSendType" BO_ 2350908967 1;
+BA_ "GenMsgCycleTime" BO_ 2350908967 100;
+BA_ "GenMsgSendType" BO_ 2351957799 1;
+BA_ "GenMsgCycleTime" BO_ 2351957799 100;
+VAL_ 2214593575 C_FLMotorSwitch 0 "Stop" 1 "Start" ;
+VAL_ 2214593575 C_FLMotorMode 0 "Drive" 1 "Generate" 0 "" ;
+VAL_ 2214659367 C_FRMotorSwitch 0 "Stop" 1 "Start" ;
+VAL_ 2214659367 C_FRMotorMode 0 "Drive" 1 "Generate" 0 "" ;
+VAL_ 2214725159 C_RLMotorSwitch 0 "Stop" 1 "Start" ;
+VAL_ 2214725159 C_RLMotorMode 0 "Drive" 1 "Generate" 0 "" ;
+VAL_ 2214790951 C_RRMotorSwitch 0 "Stop" 1 "Start" ;
+VAL_ 2214790951 C_RRMotorMode 0 "Drive" 1 "Generate" 0 "" ;
+VAL_ 2349934340 FLBBarCurOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLModeError 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLPhaseCurOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLBBarVolOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLMotorOverHeat 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLConOverHeat 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLMotorOverSpeed 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLCANError 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLMotorTempWarn 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLConTempWarn 0 "Normal" 1 "Error" ;
+VAL_ 2349934340 FLPhaseOverLoad 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRBBarCurOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRModeError 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRPhaseCurOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRBBarVolOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRMotorOverHeat 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRConOverHeat 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRMotorOverSpeed 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRCANError 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRMotorTempWarn 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRConTempWarn 0 "Normal" 1 "Error" ;
+VAL_ 2349934341 FRPhaseOverLoad 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLBBarCurOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLModeError 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLPhaseCurOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLBBarVolOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLMotorOverHeat 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLConOverHeat 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLMotorOverSpeed 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLCANError 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLMotorTempWarn 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLConTempWarn 0 "Normal" 1 "Error" ;
+VAL_ 2349934342 RLPhaseOverLoad 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRBBarCurOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRModeError 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRPhaseCurOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRBBarVolOver 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRMotorOverHeat 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRConOverHeat 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRMotorOverSpeed 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRCANError 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRMotorTempWarn 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRConTempWarn 0 "Normal" 1 "Error" ;
+VAL_ 2349934343 RRPhaseOveRRoad 0 "Normal" 1 "Error" ;
+VAL_ 2348811303 B_W_BMSStatus_FL 0 "Normal" 1 "Error" ;
+VAL_ 2348811303 B_W_BMSErrorLevel_FL 0 "Normal" 1 "ErrorLevel1" 2 "ErrorLevel2" 3 "ErrorLevel3" ;
+VAL_ 2348811303 B_W_BMSErrorReason_FL 0 "" 1 "VbatInsulationOL" 2 "GNDInsulationOL" 3 "CurrentOHigh" 4 "BatteryMaxTempOH" 5 "BatteryMinTempOL" 6 "CurDvalueOLarge" 7 "BatteryMaxVolOH" 8 "BatteryMinVolOL" 9 "VolDvalueOLarge" 10 "" 11 "TotalVolOLow" 12 "Normal" 13 "toZeroGradually" 14 "CommunicationError" 15 "HardwareError" ;
+VAL_ 2348811303 B_C_PowerCutdown1_FL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2348811303 B_C_PowerCutdown2_FL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2348811303 B_C_MotorFeedback_FL 0 "Normal" 1 "NoFeedback" ;
+VAL_ 2348811303 B_C_PowerCutdown3_FL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2348811303 B_C_PowerCutdownHalf_FL 0 "Normal" 1 "toHalfGradually" ;
+VAL_ 2348811303 B_C_PowerCutdown4_FL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2348811303 B_C_PowerCutdown5_FL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2349860135 B_W_BMSStatus_FR 0 "Normal" 1 "Error" ;
+VAL_ 2349860135 B_W_BMSErrorLevel_FR 0 "Normal" 1 "ErrorLevel1" 2 "ErrorLevel2" 3 "ErrorLevel3" ;
+VAL_ 2349860135 B_W_BMSErrorReason_FR 0 "" 1 "VbatInsulationOL" 2 "GNDInsulationOL" 3 "CurrentOHigh" 4 "BatteryMaxTempOH" 5 "BatteryMinTempOL" 6 "CurDvalueOLarge" 7 "BatteryMaxVolOH" 8 "BatteryMinVolOL" 9 "VolDvalueOLarge" 10 "" 11 "TotalVolOLow" 12 "Normal" 13 "toZeroGradually" 14 "CommunicationError" 15 "HardwareError" ;
+VAL_ 2349860135 B_C_PowerCutdown1_FR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2349860135 B_C_PowerCutdown2_FR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2349860135 B_C_MotorFeedback_FR 0 "Normal" 1 "NoFeedback" ;
+VAL_ 2349860135 B_C_PowerCutdown3_FR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2349860135 B_C_PowerCutdownHalf_FR 0 "Normal" 1 "toHalfGradually" ;
+VAL_ 2349860135 B_C_PowerCutdown4_FR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2349860135 B_C_PowerCutdown5_FR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2350908967 B_W_BMSStatus_RL 0 "Normal" 1 "Error" ;
+VAL_ 2350908967 B_W_BMSErrorLevel_RL 0 "Normal" 1 "ErrorLevel1" 2 "ErrorLevel2" 3 "ErrorLevel3" ;
+VAL_ 2350908967 B_W_BMSErrorReason_RL 0 "" 1 "VbatInsulationOL" 2 "GNDInsulationOL" 3 "CurrentOHigh" 4 "BatteryMaxTempOH" 5 "BatteryMinTempOL" 6 "CurDvalueOLarge" 7 "BatteryMaxVolOH" 8 "BatteryMinVolOL" 9 "VolDvalueOLarge" 10 "" 11 "TotalVolOLow" 12 "Normal" 13 "toZeroGradually" 14 "CommunicationError" 15 "HardwareError" ;
+VAL_ 2350908967 B_C_PowerCutdown1_RL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2350908967 B_C_PowerCutdown2_RL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2350908967 B_C_MotorFeedback_RL 0 "Normal" 1 "NoFeedback" ;
+VAL_ 2350908967 B_C_PowerCutdown3_RL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2350908967 B_C_PowerCutdownHalf_RL 0 "Normal" 1 "toHalfGradually" ;
+VAL_ 2350908967 B_C_PowerCutdown4_RL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2350908967 B_C_PowerCutdown5_RL 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2351957799 B_W_BMSStatus_RR 0 "Normal" 1 "Error" ;
+VAL_ 2351957799 B_W_BMSErrorLevel_RR 0 "Normal" 1 "ErrorLevel1" 2 "ErrorLevel2" 3 "ErrorLevel3" ;
+VAL_ 2351957799 B_W_BMSErrorReason_RR 0 "" 1 "VbatInsulationOL" 2 "GNDInsulationOL" 3 "CurrentOHigh" 4 "BatteryMaxTempOH" 5 "BatteryMinTempOL" 6 "CurDvalueOLarge" 7 "BatteryMaxVolOH" 8 "BatteryMinVolOL" 9 "VolDvalueOLarge" 10 "" 11 "TotalVolOLow" 12 "Normal" 13 "toZeroGradually" 14 "CommunicationError" 15 "HardwareError" ;
+VAL_ 2351957799 B_C_PowerCutdown1_RR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2351957799 B_C_PowerCutdown2_RR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2351957799 B_C_MotorFeedback_RR 0 "Normal" 1 "NoFeedback" ;
+VAL_ 2351957799 B_C_PowerCutdown3_RR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2351957799 B_C_PowerCutdownHalf_RR 0 "Normal" 1 "toHalfGradually" ;
+VAL_ 2351957799 B_C_PowerCutdown4_RR 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2351957799 B_C_PowerCutdown5_RR 0 "Normal" 1 "toZeroGradually" ;
+

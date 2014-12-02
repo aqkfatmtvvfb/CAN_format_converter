@@ -1,0 +1,225 @@
+VERSION "HNPBNNNYNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN/4/%%%/4/'%**4NNN///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+
+
+BO_ 1096 mWaehlhebel_1: 5 Vector__XXX
+ SG_ WH1_Position_inv : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ WH1_Reserve2 : 32|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WH1_Reserve1 : 29|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WH1_Test_Flag : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ WH1_Zaehler : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ WH1_Testergebnis : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ WH1_Fehler : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ WH1_Position : 4|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ WH1_Init : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ WH1_StaShiftlock : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+
+
+
+EV_ New_Variable_4: 0 [0|0] "" 0 1 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ New_Variable_2: 0 [0|0] "" 0 2 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ New_Variable_3: 0 [0|0] "" 0 3 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ New_Variable_1: 0 [0|0] "" 0 4 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ New_Variable_10: 0 [0|0] "" 0 5 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+CM_ SG_ 1096 WH1_Position_inv "Wählhebelposition invers (Wählhebel 1) /nBitweise Inverse Codierung der Wählhebelposition aus Byte 1, Bit 7..4;;Bemerkungen zur Multiplex-Information: Shiftlock aktiv bedeutet, der Shiftlockmagnet wird so angesteuert, daß die mechanische Verriegelung gre";
+CM_ SG_ 1096 WH1_Reserve1 "/nFrei";
+CM_ SG_ 1096 WH1_Test_Flag "Test aktiv Flag (Wählhebel 1) /nControllertestergebnis gültig, Wählhebelposition kann evtl. nicht aktuell sein";
+CM_ SG_ 1096 WH1_Zaehler "Zähler (Wählhebel 1) /nFreilaufender Botschaftszähler ; Dient der Synchronisierung der Getriebebotschaften und stellt sicher, daß der Wählhebelrechner noch lebt, damit der Testmode nicht länger wie zwei Zyklen (20ms) aktiviert ist.";
+CM_ SG_ 1096 WH1_Testergebnis "Testergebnis (Wählhebel 1) /nErgebnis des Controllertests initiert durch Testfreigabeflag und Testparameter 1 + 2 aus Getriebe 3 ; Hier wird in Verbindung mit dem 'Test aktiv Flag' das gültige Testergebnis eines noch zu definierenden Frage- und Antwortsp";
+CM_ SG_ 1096 WH1_Fehler "Fehler (Wählhebel 1) /nDas Wählhebelmodul liefert aktuelle Fehlerzustände. Die Fehlereinträge werden im Getriebesteuergerät abgelegt. ; (01: z.B. Shift lock, Lampenansteuerung, ...)";
+CM_ SG_ 1096 WH1_Position "Wählhebelposition (Wählhebel 1) /nDie Codierung der Wählhebelposition entspricht der Codierung in der Getriebe1 Botschaft";
+CM_ SG_ 1096 WH1_Init "Wählhebel-Initialisierung /nDas Bit zeigt dem Empfänger an, dass der Wählhebel in der Initialisierung war (z.B. Reset). Das Signal steht für 500ms ab Sendebeginn auf 1, danach dauerhaft auf 0.";
+CM_ SG_ 1096 WH1_StaShiftlock "Shiftlock-Position /nStatus der Shiftlockansteuerung ;;Shiftlock aktiv bedeutet, der Shiftlockmagnet wird so angesteuert, daß die mechanische Verriegelung greifen würde, wenn die entsprechende Position des Wählhebels vorliegen würde. Dies kann bedeuten,";
+BA_DEF_ SG_  "KCHECKAKTI" STRING ;
+BA_DEF_ SG_  "INIT" STRING ;
+BA_DEF_ BO_  "VAGTP20_API" HEX 0 255;
+BA_DEF_ BO_  "VAGTP20_StatConnection" ENUM  "nein","ja";
+BA_DEF_ SG_  "GenSigTimeoutTime_<ECU>" HEX 0 2047;
+BA_DEF_ SG_  "GenSigTimeoutMsg_<ECU>" HEX 0 2047;
+BA_DEF_ SG_  "GenSigInactiveValue" HEX 0 134217727;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ BO_  "GenMsgTimeoutTime" INT 0 100000;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 100;
+BA_DEF_ BO_  "GenMsgNoIalSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 100000;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 65535;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 100000;
+BA_DEF_ BU_  "MessageManagerUsed" ENUM  "No","Yes";
+BA_DEF_ BO_  "VAGTP20_DynConnection" ENUM  "nein","ja";
+BA_DEF_ BO_  "VAGTP20_DynSetup" ENUM  "nein","ja";
+BA_DEF_ BU_  "VAGTP20_TargetAddress" HEX 0 127;
+BA_DEF_ BU_  "GenNodAutoGenDsp" ENUM  "Yes","No";
+BA_DEF_ BU_  "GenNodAutoGenSnd" ENUM  "Yes","No";
+BA_DEF_ BU_  "GenNodSleepTime" INT 0 1000000;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_  "NWMMessageCount" INT 0 64;
+BA_DEF_ BO_  "xVWTP_Channel" ENUM  "nein","ja";
+BA_DEF_ BO_  "xVWTP_Setup" ENUM  "nein","ja";
+BA_DEF_ SG_  "SignalRepeatDeactivation" INT 0 20;
+BA_DEF_ SG_  "SignalRepeatActivation" INT 0 20;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclicX","spontanX","cyclicIfActiveX","spontanWithDelay","cyclicAndSpontanX","cyclicAndSpontanWithDelay","spontanWithRepitition","cyclicIfActiveAndSpontanWD","cyclicIfActiveFast";
+BA_DEF_  "Manufacturer" ENUM  "DBAG","VAG","BMWAG","PAG","GM";
+BA_DEF_ BU_  "NWM-Stationsadresse" HEX 0 63;
+BA_DEF_ BU_  "NWM-Knoten" ENUM  "nein","ja";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_  "NWM-Botschaft" ENUM  "nein","ja";
+BA_DEF_  "NWM-Basisadresse" HEX 0 2032;
+BA_DEF_  "NWM-Typ" ENUM  "zentral (MB-W210)","dezentral (MB-OSAN)","keines","VAG-OSEK","BMW-OSEK","PAG-OSEK","DBAG-OSEK";
+BA_DEF_DEF_  "KCHECKAKTI" "";
+BA_DEF_DEF_  "INIT" "";
+BA_DEF_DEF_  "VAGTP20_API" 0;
+BA_DEF_DEF_  "VAGTP20_StatConnection" "";
+BA_DEF_DEF_  "GenSigTimeoutTime_<ECU>" 0;
+BA_DEF_DEF_  "GenSigTimeoutMsg_<ECU>" 0;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "";
+BA_DEF_DEF_  "GenMsgTimeoutTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgNoIalSupport" "";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "MessageManagerUsed" "";
+BA_DEF_DEF_  "VAGTP20_DynConnection" "";
+BA_DEF_DEF_  "VAGTP20_DynSetup" "";
+BA_DEF_DEF_  "VAGTP20_TargetAddress" 0;
+BA_DEF_DEF_  "GenNodAutoGenDsp" "";
+BA_DEF_DEF_  "GenNodAutoGenSnd" "";
+BA_DEF_DEF_  "GenNodSleepTime" 0;
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "NWMMessageCount" 64;
+BA_DEF_DEF_  "xVWTP_Channel" "";
+BA_DEF_DEF_  "xVWTP_Setup" "";
+BA_DEF_DEF_  "SignalRepeatDeactivation" 0;
+BA_DEF_DEF_  "SignalRepeatActivation" 0;
+BA_DEF_DEF_  "GenMsgSendType" "";
+BA_DEF_DEF_  "Manufacturer" "VAG";
+BA_DEF_DEF_  "NWM-Stationsadresse" 0;
+BA_DEF_DEF_  "NWM-Knoten" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "NWM-Botschaft" "";
+BA_DEF_DEF_  "NWM-Basisadresse" 1024;
+BA_DEF_DEF_  "NWM-Typ" "VAG-OSEK";
+BA_ "NWM-Typ" 3;
+BA_ "NWM-Basisadresse" 1024;
+BA_ "Manufacturer" 1;
+BA_ "NWMMessageCount" 64;
+BA_ "GenMsgCycleTime" BO_ 1096 10;
+BA_ "GenMsgSendType" BO_ 1096 0;
+BA_ "xVWTP_Setup" BO_ 1096 0;
+BA_ "xVWTP_Channel" BO_ 1096 0;
+BA_ "VAGTP20_DynSetup" BO_ 1096 0;
+BA_ "VAGTP20_DynConnection" BO_ 1096 0;
+BA_ "GenMsgDelayTime" BO_ 1096 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1096 0;
+BA_ "GenMsgStartDelayTime" BO_ 1096 0;
+BA_ "GenMsgNoIalSupport" BO_ 1096 0;
+BA_ "GenMsgTimeoutTime" BO_ 1096 0;
+BA_ "VAGTP20_StatConnection" BO_ 1096 0;
+BA_ "VAGTP20_API" BO_ 1096 0;
+BA_ "NWM-Botschaft" BO_ 1096 0;
+BA_ "GenSigSendType" SG_ 1096 WH1_Position_inv 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Position_inv 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Position_inv 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Position_inv 0;
+BA_ "INIT" SG_ 1096 WH1_Position_inv "15";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Position_inv "SJ---Wählhebelposition invers (Wählhebel 1)";
+BA_ "GenSigSendType" SG_ 1096 WH1_Reserve2 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Reserve2 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Reserve2 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Reserve2 0;
+BA_ "INIT" SG_ 1096 WH1_Reserve2 "0";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Reserve2 "OJ---";
+BA_ "GenSigSendType" SG_ 1096 WH1_Reserve1 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Reserve1 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Reserve1 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Reserve1 0;
+BA_ "INIT" SG_ 1096 WH1_Reserve1 "0";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Reserve1 "OJ---";
+BA_ "GenSigSendType" SG_ 1096 WH1_Test_Flag 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Test_Flag 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Test_Flag 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Test_Flag 0;
+BA_ "INIT" SG_ 1096 WH1_Test_Flag "0";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Test_Flag "SJ---Test aktiv Flag (Wählhebel 1)";
+BA_ "GenSigSendType" SG_ 1096 WH1_Zaehler 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Zaehler 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Zaehler 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Zaehler 0;
+BA_ "INIT" SG_ 1096 WH1_Zaehler "0";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Zaehler "SJ---Zähler (Wählhebel 1)";
+BA_ "GenSigSendType" SG_ 1096 WH1_Testergebnis 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Testergebnis 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Testergebnis 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Testergebnis 0;
+BA_ "INIT" SG_ 1096 WH1_Testergebnis "0";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Testergebnis "SJ---Testergebnis (Wählhebel 1)";
+BA_ "GenSigSendType" SG_ 1096 WH1_Fehler 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Fehler 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Fehler 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Fehler 0;
+BA_ "INIT" SG_ 1096 WH1_Fehler "0";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Fehler "SJ---Fehler (Wählhebel 1)";
+BA_ "GenSigSendType" SG_ 1096 WH1_Position 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Position 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Position 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Position 0;
+BA_ "INIT" SG_ 1096 WH1_Position "0";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Position "SJ---Wählhebelpos. verändern";
+BA_ "GenSigSendType" SG_ 1096 WH1_Init 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_Init 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_Init 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_Init 0;
+BA_ "INIT" SG_ 1096 WH1_Init "1";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_Init "SJ---Wählhebel-Initialisierung";
+BA_ "GenSigSendType" SG_ 1096 WH1_StaShiftlock 7;
+BA_ "GenSigInactiveValue" SG_ 1096 WH1_StaShiftlock 0;
+BA_ "GenSigTimeoutMsg_<ECU>" SG_ 1096 WH1_StaShiftlock 0;
+BA_ "GenSigTimeoutTime_<ECU>" SG_ 1096 WH1_StaShiftlock 0;
+BA_ "INIT" SG_ 1096 WH1_StaShiftlock "0";
+BA_ "KCHECKAKTI" SG_ 1096 WH1_StaShiftlock "SJ---Shiftlock-Position";
+VAL_ 1096 WH1_Test_Flag 1 "Testergebnis_gueltig" 0 "Testergebnis_ungueltig" ;
+VAL_ 1096 WH1_Fehler 0 "fehlerfrei" ;
+VAL_ 1096 WH1_Position 15 "Fehler" 14 "Tipp_Gasse" 13 "Position_L" 12 "Position_S_Sport" 11 "Position_Tipp_minus" 10 "Position_Tipp_plus" 9 "Position_N_ohne_Spotausl" 8 "Position_P_Stop" 7 "Position_R" 6 "Position_N" 5 "Position_D" 4 "Position_4" 3 "Position_3" 2 "Position_2" 1 "Position_1" ;
+VAL_ 1096 WH1_Init 1 "Initphase" 0 "keine_Initphase" ;
+VAL_ 1096 WH1_StaShiftlock 7 "Shiftlock_ist_fehlerhaft" 6 "nicht_verbaut" 3 "Shiftlock_ist_aktiviert" 2 "Shiftlock_ist_deaktiviert" 0 "Initwert" ;
+

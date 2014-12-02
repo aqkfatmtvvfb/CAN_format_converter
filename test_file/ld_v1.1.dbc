@@ -1,0 +1,78 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYNNNNNNNNNN/4/%%%/4/'%**4NNN///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VCU RT3000
+
+
+BO_ 1536 DateTime: 8 RT3000
+ SG_ TimeYear : 0|8@1+ (1,0) [0|100] ""  VCU
+ SG_ TimeCentury : 8|8@1+ (1,0) [0|0] ""  VCU
+ SG_ TimeMonth : 16|8@1+ (1,0) [0|12] ""  VCU
+ SG_ TimeDay : 24|8@1+ (1,0) [0|31] ""  VCU
+ SG_ TimeHSecond : 32|8@1+ (0.01,0) [0|1] "s"  VCU
+ SG_ TimeSecond : 40|8@1+ (1,0) [0|60] "s"  VCU
+ SG_ TimeMinute : 48|8@1+ (1,0) [0|60] "min"  VCU
+ SG_ TimeHour : 56|8@1+ (1,0) [0|24] "hr"  VCU
+
+BO_ 1537 LatitudeLongitude: 8 RT3000
+ SG_ PosLat : 0|32@1- (1E-007,0) [-214.7483648|214.7483647] "бу"  VCU
+ SG_ PosLon : 32|32@1- (1E-007,0) [-214.7483648|214.7483647] "бу"  VCU
+
+BO_ 1540 VelocityLevel: 4 RT3000
+ SG_ VelForward : 0|16@1- (0.01,0) [-327.68|327.67] "m/s"  VCU
+ SG_ VelLateral : 16|16@1- (0.01,0) [-327.68|327.67] "m/s"  VCU
+
+BO_ 1541 AccelVehicle: 6 RT3000
+ SG_ AccelX : 0|16@1- (0.01,0) [-327.68|327.67] "m/s2"  VCU
+ SG_ AccelY : 16|16@1- (0.01,0) [-327.68|327.67] "m/s2"  VCU
+ SG_ AccelZ : 32|16@1- (0.01,0) [-327.68|327.67] "m/s2"  VCU
+
+BO_ 1544 RateVehicle: 6 RT3000
+ SG_ AngRateX : 0|16@1- (0.01,0) [-327.68|327.67] "бу/s"  VCU
+ SG_ AngRateY : 16|16@1- (0.01,0) [-327.68|327.67] "бу/s"  VCU
+ SG_ AngRateZ : 32|16@1- (0.01,0) [-327.68|327.67] "бу/s"  VCU
+
+BO_ 1546 TrackSlipCurvature: 8 RT3000
+ SG_ AngleTrack : 0|16@1+ (0.01,0) [0|655.35] "бу"  VCU
+ SG_ AngleSlip : 16|16@1- (0.01,0) [-327.68|327.67] "бу"  VCU
+ SG_ Curvature : 32|16@1- (0.0001,0) [-3.2768|3.2767] "1/m"  VCU
+
+BO_ 1548 PosLocal: 8 RT3000
+ SG_ PosLocalX : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "m"  VCU
+ SG_ PosLocalY : 32|32@1- (0.0001,0) [-214748.3648|214748.3647] "m"  VCU
+
+
+
+

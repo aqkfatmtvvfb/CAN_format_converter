@@ -1,0 +1,140 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VCU BMS CCS
+
+
+BO_ 2348872844 VCU2BMS: 8 VCU
+ SG_ B_S_VehicleError : 16|1@1+ (1,0) [0|1] ""  BMS
+ SG_ B_C_MainRelay : 24|1@1+ (1,0) [0|1] ""  BMS
+ SG_ B_C_InchargeStart : 25|1@1+ (1,0) [0|1] ""  BMS
+
+BO_ 2566869221 CCS2BMS: 8 CCS
+ SG_ B_ExportVoltage : 0|16@1+ (0.1,0) [0|500] "V"  BMS
+ SG_ B_ExportCurrent : 16|16@1+ (0.1,0) [0|200] "A"  BMS
+ SG_ B_S_HardwareError : 32|1@1+ (1,0) [0|1] ""  BMS
+ SG_ B_S_ChargerTemp : 33|1@1+ (1,0) [0|1] ""  BMS
+ SG_ B_S_InputVoltage : 34|1@1+ (1,0) [0|1] ""  BMS
+ SG_ B_S_Operation : 35|1@1+ (1,0) [0|1] ""  BMS
+ SG_ B_S_Communication : 36|1@1+ (1,0) [0|1] ""  BMS
+
+BO_ 2550500596 BMS2VCU: 8 BMS
+ SG_ B_BatteryCellNumber : 0|16@1+ (1,0) [0|200] "cell"  VCU
+ SG_ B_NominalVoltage : 16|16@1+ (0.01,0) [0|500] "V"  VCU
+ SG_ B_NominalVolume : 32|16@1+ (0.1,0) [0|22] "kWh"  VCU
+ SG_ B_LowestDischargeVoltage : 48|16@1+ (0.01,0) [0|500] "V"  VCU
+
+BO_ 2550566132 BMS2VCU_2: 8 BMS
+ SG_ B_HighestDischargeCurrent : 0|16@1+ (0.01,0) [0|1000] "A"  VCU
+ SG_ B_BatteryType : 16|16@1+ (1,0) [0|65535] ""  VCU
+ SG_ B_SerialNumber : 32|16@1+ (1,0) [0|65535] ""  VCU
+ SG_ B_ManufacturerNumber : 48|16@1+ (1,0) [0|65535] ""  VCU
+
+BO_ 2550238452 BMS2VCU_3: 8 BMS
+ SG_ B_SystemVoltage : 0|16@1+ (0.01,0) [0|500] "V"  VCU
+ SG_ B_ChargeCurrent : 16|16@1- (0.1,-500) [-500|500] "A"  VCU
+ SG_ B_Resistance : 32|16@1+ (0.001,0) [0|1000] "K¦¸"  VCU
+ SG_ B_SOC : 48|8@1+ (1,0) [0|100] "%"  VCU
+ SG_ B_Status_Circuit : 56|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_HeatRelayKey : 57|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_CoolerKey : 58|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_MainRelayKey : 59|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_ChargeRelayKey : 60|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2550588916 BMS2CCS: 8 BMS
+ SG_ B_HighestChargeVoltage : 0|16@1+ (0.1,0) [0|500] "V"  CCS
+ SG_ B_HighestChargeCurrent : 16|16@1+ (0.1,0) [0|1000] "A"  CCS
+ SG_ B_ChargerControl : 32|1@1+ (1,0) [0|1] ""  CCS
+
+BO_ 2550172916 BMS2VCU_4: 8 BMS
+ SG_ B_CellHighestVoltage : 0|8@1+ (0.1,0) [0|5] "V"  VCU
+ SG_ B_CellLowestVoltage : 8|8@1+ (0.1,0) [0|5] "V"  VCU
+ SG_ B_CellHighestCurrent_Module : 16|4@1+ (1,0) [0|10] ""  VCU
+ SG_ B_CellHighestCurrent_Number : 20|4@1+ (1,0) [0|200] ""  VCU
+ SG_ B_CellLowestCurrent_Module : 24|4@1+ (1,0) [0|10] ""  VCU
+ SG_ B_CellLowestCurrent_Number : 28|4@1+ (1,0) [0|200] ""  VCU
+ SG_ B_CellHighestTemp : 32|8@1+ (0.5,-40) [-40|85] "deg"  VCU
+ SG_ B_CellLowestTemp : 40|8@1+ (0.5,-40) [-40|85] "deg"  VCU
+ SG_ B_HighestTemp_Module : 48|4@1+ (1,0) [0|10] ""  VCU
+ SG_ B_LowestTemp_Module : 52|4@1+ (1,0) [0|10] ""  VCU
+ SG_ B_BalanceStatus : 56|8@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2348871668 BMS2VCU_MCU: 8 BMS
+ SG_ B_W_BMSStatus : 16|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_W_BMSErrorLevel : 18|2@1+ (1,0) [0|1] ""  VCU
+ SG_ B_W_BMSErrorReason : 20|4@1+ (1,0) [0|15] ""  VCU
+ SG_ B_C_PowerCutdown1 : 32|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_C_PowerCutdown2 : 33|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_C_MotorFeedback : 34|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_C_PowerCutdown3 : 35|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_C_PowerCutdownHalf : 37|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_C_PowerCutdown4 : 38|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_C_PowerCutdown5 : 39|1@1+ (1,0) [0|1] ""  VCU
+
+
+
+BA_DEF_ SG_  "GenSigSendType" ENUM  "cyclic";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used";
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 2 100000;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 10 50000;
+BA_DEF_DEF_  "GenSigSendType" "cyclic";
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 5;
+BA_DEF_DEF_  "GenMsgCycleTime" 1000;
+VAL_ 2348872844 B_S_VehicleError 0 "Normal" 1 "Error" ;
+VAL_ 2348872844 B_C_MainRelay 0 "Open" 1 "Closed" ;
+VAL_ 2348872844 B_C_InchargeStart 0 "Charge" 1 "Closed" ;
+VAL_ 2566869221 B_S_HardwareError 0 "Normal" 1 "Error" ;
+VAL_ 2566869221 B_S_ChargerTemp 0 "Normal" 1 "Error" ;
+VAL_ 2566869221 B_S_InputVoltage 0 "Normal" 1 "Error" ;
+VAL_ 2566869221 B_S_Operation 0 "Normal" 1 "Error" ;
+VAL_ 2566869221 B_S_Communication 0 "Normal" 1 "Error" ;
+VAL_ 2550238452 B_Status_Circuit 0 "Normal" 1 "Error" ;
+VAL_ 2550238452 B_HeatRelayKey 0 "NO" 1 "OFF" ;
+VAL_ 2550238452 B_CoolerKey 0 "NO" 1 "OFF" ;
+VAL_ 2550238452 B_MainRelayKey 0 "NO" 1 "OFF" ;
+VAL_ 2550238452 B_ChargeRelayKey 0 "NO" 1 "OFF" ;
+VAL_ 2550588916 B_ChargerControl 0 "Charge" 1 "Closed" ;
+VAL_ 2348871668 B_W_BMSStatus 0 "Normal" 1 "Error" ;
+VAL_ 2348871668 B_W_BMSErrorLevel 0 "Normal" 1 "ErrorLevel1" 2 "ErrorLevel2" 3 "ErrorLevel3" ;
+VAL_ 2348871668 B_W_BMSErrorReason 0 "Normal" 1 "VbatInsulationOL" 2 "GNDInsulationOL" 3 "CurrentOHigh" 4 "BatteryMaxTempOH" 5 "BatteryMinTempOL" 6 "CurDvalueOLarge" 7 "BatteryMaxVolOH" 8 "BatteryMinVolOL" 9 "VolDvalueOLarge" 10 "TotalVolOLarge" 11 "TotalVolOLow" 12 "SOCOH" 13 "SOCOL" 14 "CommunicationError" 15 "HardwareError" ;
+VAL_ 2348871668 B_C_PowerCutdown1 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2348871668 B_C_PowerCutdown2 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2348871668 B_C_MotorFeedback 0 "Normal" 1 "NoFeedback" ;
+VAL_ 2348871668 B_C_PowerCutdown3 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2348871668 B_C_PowerCutdownHalf 0 "Normal" 1 "toHalfGradually" ;
+VAL_ 2348871668 B_C_PowerCutdown4 0 "Normal" 1 "toZeroGradually" ;
+VAL_ 2348871668 B_C_PowerCutdown5 0 "Normal" 1 "toZeroGradually" ;
+

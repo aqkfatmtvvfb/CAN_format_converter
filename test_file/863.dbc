@@ -1,0 +1,137 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VCU BMS CCS EPS SAS
+
+
+BO_ 2348872844 VCU2BMS: 8 VCU
+ SG_ B_S_VehicleError : 16|1@1+ (1,0) [0|1] ""  BMS
+ SG_ B_C_MainRelay : 24|1@1+ (1,0) [0|1] ""  BMS
+ SG_ B_C_InchargeStart : 25|1@1+ (1,0) [0|1] ""  BMS
+
+BO_ 2566884581 CCS2VCU: 8 CCS
+ SG_ B_ExportVoltage : 0|16@1+ (0.1,0) [0|500] "V"  VCU
+ SG_ B_ExportCurrent : 16|16@1+ (0.1,0) [0|200] "A"  VCU
+ SG_ B_S_HardwareError : 32|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_S_ChargerTemp : 33|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_S_InputVoltage : 34|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_S_Operation : 35|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_S_Communication : 36|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2550500596 BMS2VCU: 8 BMS
+ SG_ B_BatteryCellNumber : 0|16@1+ (1,0) [0|200] "cell"  VCU
+ SG_ B_NominalVoltage : 16|16@1+ (0.1,0) [0|500] "V"  VCU
+ SG_ B_NominalVolume : 32|16@1+ (0.1,0) [0|22] "kWh"  VCU
+ SG_ B_LowestDischargeVoltage : 48|16@1+ (0.1,0) [0|500] "V"  VCU
+
+BO_ 2550566132 BMS2VCU_2: 8 BMS
+ SG_ B_HighestDischargeCurrent : 0|16@1+ (0.1,0) [0|1000] "A"  VCU
+ SG_ B_BatteryType : 16|16@1+ (1,0) [0|65535] ""  VCU
+ SG_ B_SerialNumber : 32|16@1+ (1,0) [0|65535] ""  VCU
+ SG_ B_ManufacturerNumber : 48|16@1+ (1,0) [0|65535] ""  VCU
+
+BO_ 2550238452 BMS2VCU_3: 8 BMS
+ SG_ B_SystemVoltage : 0|16@1+ (0.1,0) [0|500] "V"  VCU
+ SG_ B_ChargeCurrent : 16|16@1- (0.1,0) [-500|500] "A"  VCU
+ SG_ B_Resistance : 32|16@1+ (1,0) [0|1000] "K¦¸"  VCU
+ SG_ B_SOC : 48|8@1+ (0.1,0) [0|100] "%"  VCU
+ SG_ B_Status_Circuit : 56|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_HeatRelayKey : 57|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_CoolerKey : 58|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_MainRelayKey : 59|1@1+ (1,0) [0|1] ""  VCU
+ SG_ B_ChargeRelayKey : 60|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2550588916 BMS2CCS: 8 BMS
+ SG_ B_HighestChargeVoltage : 0|16@1+ (0.1,0) [0|500] "V"  CCS
+ SG_ B_HighestChargeCurrent : 16|16@1+ (0.1,0) [0|1000] "A"  CCS
+ SG_ B_ChargerControl : 32|1@1+ (1,0) [0|1] ""  CCS
+
+BO_ 2550172916 BMS2VCU_4: 8 BMS
+ SG_ B_CellHighestVoltage : 0|8@1+ (0.1,0) [0|5] "V"  VCU
+ SG_ B_CellLowestVoltage : 8|8@1+ (0.1,0) [0|5] "V"  VCU
+ SG_ B_CellHighestCurrent_Module : 16|4@1+ (1,0) [0|10] ""  VCU
+ SG_ B_CellHighestCurrent_Number : 20|4@1+ (1,0) [0|200] ""  VCU
+ SG_ B_CellLowestCurrent_Module : 24|4@1+ (1,0) [0|10] ""  VCU
+ SG_ B_CellLowestCurrent_Number : 28|4@1+ (1,0) [0|200] ""  VCU
+ SG_ B_CellHighestTemp : 32|8@1+ (0.5,0) [-40|85] "deg"  VCU
+ SG_ B_CellLowestTemp : 40|8@1+ (0.5,0) [-40|85] "deg"  VCU
+ SG_ B_HighestTemp_Module : 48|4@1+ (1,0) [0|10] ""  VCU
+ SG_ B_LowestTemp_Module : 52|4@1+ (1,0) [0|10] ""  VCU
+ SG_ B_BalanceStatus : 56|8@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2348865164 VCU2EPS: 8 VCU
+ SG_ B_BoosterMotorRequestTorque : 0|8@1+ (0.1,0) [0|25] "Nm"  EPS
+ SG_ B_BoosterMotorRequestAngle : 8|16@1- (0.1,0) [-900|900] "deg"  EPS
+ SG_ B_VehicleSpeed : 24|16@1+ (0.1,0) [0|150] "km/h"  EPS
+ SG_ B_Power_Voltage : 40|8@1+ (0.1,0) [0|25] "V"  EPS
+ SG_ B_Power_Current : 48|16@1+ (1,0) [0|250] "A"  EPS
+
+BO_ 2550172886 EPSStatus: 1 EPS
+ SG_ B_EPS_Error : 0|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 2565872968 SAS_18F01D48: 8 SAS
+ SG_ SAS_SteeringAngle : 0|16@1- (0.1,0) [-3276.8|3276.7] "deg"  VCU,EPS
+ SG_ SAS_SteeringAngleVelocity : 16|8@1+ (4,0) [0|1020] "deg/s"  VCU,EPS
+ SG_ SAS_SteeringAngleValid : 24|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_SteeringSpeedValid : 25|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_Calibrated : 26|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_BatteryWaring : 28|2@1+ (1,0) [0|3] ""  VCU
+ SG_ SAS_SASFailure : 30|1@1+ (1,0) [0|1] ""  VCU
+ SG_ SAS_MessageCounter : 40|8@1+ (1,0) [0|255] ""  VCU
+ SG_ SAS_CheckSum : 56|8@1+ (1,0) [0|255] ""  VCU
+
+
+
+VAL_ 2348872844 B_S_VehicleError 0 "Normal" 1 "Error" ;
+VAL_ 2348872844 B_C_MainRelay 0 "Open" 1 "Closed" ;
+VAL_ 2348872844 B_C_InchargeStart 0 "Charge" 1 "Closed" ;
+VAL_ 2566884581 B_S_HardwareError 0 "Normal" 1 "Error" ;
+VAL_ 2566884581 B_S_ChargerTemp 0 "Normal" 1 "Error" ;
+VAL_ 2566884581 B_S_InputVoltage 0 "Normal" 1 "Error" ;
+VAL_ 2566884581 B_S_Operation 0 "Normal" 1 "Error" ;
+VAL_ 2566884581 B_S_Communication 0 "Normal" 1 "Error" ;
+VAL_ 2550238452 B_Status_Circuit 0 "Normal" 1 "Error" ;
+VAL_ 2550238452 B_HeatRelayKey 0 "NO" 1 "OFF" ;
+VAL_ 2550238452 B_CoolerKey 0 "NO" 1 "OFF" ;
+VAL_ 2550238452 B_MainRelayKey 0 "NO" 1 "OFF" ;
+VAL_ 2550238452 B_ChargeRelayKey 0 "NO" 1 "OFF" ;
+VAL_ 2550588916 B_ChargerControl 0 "Charge" 1 "Closed" ;
+VAL_ 2550172886 B_EPS_Error 0 "Normal" 1 "Error" ;
+VAL_ 2565872968 SAS_SteeringAngleValid 0 "NotValid" 1 "Valid" ;
+VAL_ 2565872968 SAS_SteeringSpeedValid 0 "NotValid" 1 "Valid" ;
+VAL_ 2565872968 SAS_Calibrated 0 "NotCalirated" 1 "Calibrated" ;
+VAL_ 2565872968 SAS_BatteryWaring 0 "NoWaring" 1 "6VWarning" 2 "16VWarning" 3 "Invalid" ;
+VAL_ 2565872968 SAS_SASFailure 0 "NoFailure" 1 "Failure" ;
+
